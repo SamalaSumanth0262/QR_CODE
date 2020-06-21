@@ -1,60 +1,47 @@
-import React from "react";
-import { connect } from "react-redux";
-import { getUsers } from "../../Actions/ActivityActions";
+import React from 'react';
+import {Formik} from 'formik';
+import * as Yup from 'yup';
+import DropZone from '../Formik/DropZone';
+import Button from '../common/Button';
+// import { radioOptions, DropDownOptions } from "../constants";
+const exampleSchema = Yup.object().shape({
+  name: Yup.string().required('Text is Required')
+});
+
 class DashBoard extends React.Component {
   state = {
-    users: []
+    initialValues: {}
   };
-  componentDidMount() {
-    this.props.dispatch(getUsers());
-  }
-  componentDidUpdate(prevProps, currentProps) {
-    if (prevProps.users !== this.props.users) {
-      this.setState({
-        users: this.props
-      });
-    }
-  }
+  componentDidMount() {}
   render() {
-    console.log("this.props", this.props.users);
+    let renderView = (props) => {
+      return (
+        <div className="container">
+          <DropZone
+            labelName="file_drop_zone"
+            labelTitle="File Drop Zone"
+            labelFor="File Drop Zone"
+            isMandatory={true}
+          />
+          <div className="row float-right">
+            <div className="col-sm-12">
+              <Button text="Upload" />
+            </div>
+          </div>
+        </div>
+      );
+    };
     return (
-      <div className="container mt-5 mb-5">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">name</th>
-              <th scope="col">age</th>
-              <th scope="col">gender</th>
-              <th scope="col">email</th>
-              <th scope="col">phone number</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.props.users.map(record => {
-              return (
-                <tr>
-                  <th scope="row">{record.id}</th>
-                  <td>{record.name}</td>
-                  <td>{record.age}</td>
-                  <td>{record.gender}</td>
-                  <td>{record.email}</td>
-                  <td>{record.phoneNo}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+      <Formik
+        initialValues={this.state.initialValues}
+        render={renderView}
+        validationSchema={exampleSchema}
+        handleSubmit={(values, actions) => {
+          this.handleSubmitForm({values, actions});
+        }}
+      />
     );
   }
 }
 
-function withStateToProps(state) {
-  console.log("withStateToProps -> state", state);
-  return {
-    users: state.activity.users
-  };
-}
-
-export default connect(withStateToProps)(DashBoard);
+export default DashBoard;

@@ -1,18 +1,18 @@
-const { resolve } = require("path");
-const merge = require("webpack-merge");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
+const {resolve} = require('path');
+const merge = require('webpack-merge');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
-const commonConfig = require("./webpack.config.common");
+const commonConfig = require('./webpack.config.common');
 
 module.exports = merge(commonConfig, {
-  mode: "production",
+  mode: 'production',
   plugins: [
     new HtmlWebpackPlugin({
       hash: true,
       inject: true,
-      template: resolve(__dirname, "..", "src", "client", "index.html"),
+      template: resolve(__dirname, '..', 'src', 'client', 'index.html'),
       //favicon: resolve(__dirname, '..', 'src', 'client', 'static', 'favicon.png'),
       minify: {
         removeComments: true,

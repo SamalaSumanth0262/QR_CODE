@@ -1,22 +1,22 @@
-import React from "react";
-import { Formik } from "formik";
-import TextInput from "./TextInput";
-import * as Yup from "yup";
+import React from 'react';
+import {Formik} from 'formik';
+import TextInput from './TextInput';
+import * as Yup from 'yup';
 // import CkEditor from "./CkEditor";
-import TextArea from "./TextArea";
-import RadioBox from "./RadioBox";
-import CheckBox from "./CheckBox";
-import PhotoUpload from "./PhotoUpload";
+import TextArea from './TextArea';
+import RadioBox from './RadioBox';
+import CheckBox from './CheckBox';
+import PhotoUpload from './PhotoUpload';
 // import DropZone from "./DropZone";
 // import DropDown from "./DropDown";
-import DatePicker from "./DatePicker";
+import DatePicker from './DatePicker';
 // import TextGroup from "./TextGroup";
 //Yup Validaation STARTS
 // import { radioOptions, DropDownOptions } from "../constants";
 const exampleSchema = Yup.object().shape({
-  name: Yup.string().required("Text is Required"),
-  cke_editor: Yup.string().required("CKE editor is required"),
-  text_area: Yup.string().required("Text Area is Empty..")
+  name: Yup.string().required('Text is Required'),
+  cke_editor: Yup.string().required('CKE editor is required'),
+  text_area: Yup.string().required('Text Area is Empty..')
 });
 
 //Yup Validation ENDS
@@ -24,9 +24,9 @@ const exampleSchema = Yup.object().shape({
 class FormikExample extends React.Component {
   state = {
     initialValues: {
-      name: "",
-      text_area: "",
-      cke_editor: "",
+      name: '',
+      text_area: '',
+      cke_editor: '',
       radio_box: null,
       check_box: null,
       photo_upload: null,
@@ -43,27 +43,24 @@ class FormikExample extends React.Component {
     isDarkMode: false
   };
 
-  handleSubmitForm = ({ values, actions }) => {
-    console.log("TCL: FormikExample -> handleSubmitForm -> {values, actions}", {
+  handleSubmitForm = ({values, actions}) => {
+    console.log('TCL: FormikExample -> handleSubmitForm -> {values, actions}', {
       values,
       actions
     });
   };
 
-  handleDarkMode = event => {
+  handleDarkMode = (event) => {
     this.setState({
       isDarkMode: event.currentTarget.checked
     });
   };
 
   render() {
-    let renderView = props => {
-      console.log("TCL: render -> props", props);
+    let renderView = (props) => {
+      console.log('TCL: render -> props', props);
       return (
-        <form
-          onSubmit={props.handleSubmit}
-          id={this.state.isDarkMode ? "formikDarkMode" : "formikLightMode"}
-        >
+        <form onSubmit={props.handleSubmit} id={this.state.isDarkMode ? 'formikDarkMode' : 'formikLightMode'}>
           <div className="container-fluid bg-theme">
             <nav className="navbar navbar-light justify-content-between nav-bar-bg">
               <a className="navbar-brand">Formik Components Made Easy</a>
@@ -73,32 +70,19 @@ class FormikExample extends React.Component {
                   type="checkbox"
                   placeholder="DarkMode"
                   aria-label="DarkMode"
-                  onClick={e => this.handleDarkMode(e)}
+                  onClick={(e) => this.handleDarkMode(e)}
                 />
                 <span className="navbar-brand">Dark Mode</span>
               </form>
             </nav>
             <div className="container-fluid justify-content-center mt-5">
-              <div
-                className="row justify-content-center mx-auto"
-                style={{ width: "90%" }}
-              >
+              <div className="row justify-content-center mx-auto" style={{width: '90%'}}>
                 <div className="col-sm-6">
                   <div className="mt-3">
-                    <TextInput
-                      type="text"
-                      labelName="name"
-                      labelTitle="Text Input"
-                      isMandatory={true}
-                    />
+                    <TextInput type="text" labelName="name" labelTitle="Text Input" isMandatory={true} />
                   </div>
                   <div className="mt-3">
-                    <TextArea
-                      type="text"
-                      labelName="text_area"
-                      labelTitle="TextArea"
-                      isMandatory={true}
-                    />
+                    <TextArea type="text" labelName="text_area" labelTitle="TextArea" isMandatory={true} />
                   </div>
                   <div className="mt-3">
                     {/* <CkEditor
@@ -117,11 +101,7 @@ class FormikExample extends React.Component {
                     /> */}
                   </div>
                   <div className="mt-3">
-                    <CheckBox
-                      labelName="check_box"
-                      labelTitle="CheckBox"
-                      isMandatory={true}
-                    />
+                    <CheckBox labelName="check_box" labelTitle="CheckBox" isMandatory={true} />
                   </div>
                   <button type="submit" className="btn btn-primary mt-5">
                     Submit
@@ -184,8 +164,8 @@ class FormikExample extends React.Component {
           initialValues={this.state.initialValues}
           render={renderView}
           validationSchema={exampleSchema}
-          handleSubmit={({ values, actions }) => {
-            this.handleSubmitForm({ values, actions });
+          handleSubmit={({values, actions}) => {
+            this.handleSubmitForm({values, actions});
           }}
         />
       </React.Fragment>
