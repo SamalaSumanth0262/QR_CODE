@@ -1,0 +1,51 @@
+.signInContatiner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 80vh;
+  align-items: center;
+}
+
+.signInCard {
+  width: 490px;
+  padding: 48px 93px 48px 46px;
+  border-radius: 8px;
+  border: solid 2px #553d7b;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  height: min-content;
+  z-index: 9;
+}
+.signHeading {
+  width: 267px;
+  height: 27px;
+  font-size: 24px;
+  font-weight: bold;
+}
+.signSubHeading {
+  font-size: 14px;
+  letter-spacing: 0.06px;
+  color: #a1a1a1;
+  margin-top: 10px;
+}
+#background {
+  background: radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.7088410364145659) 0%),
+    url('https://cdn.slashgear.com/wp-content/uploads/2020/04/screens.jpg');
+  height: 90vh;
+  width: 100%;
+  background-size: cover;
+}
+
+.signUp {
+  margin: 5px;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  a {
+    color: #553d7b;
+    &:hover {
+      color: #553d7b
+    }
+  }
+}

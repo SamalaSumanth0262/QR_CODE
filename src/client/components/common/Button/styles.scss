@@ -1,0 +1,19 @@
+.btn-primary {
+  background-color: #553d7b; //TO_DO: should be derived from colo palatte
+  border: 2px solid #7a57b3;
+  &:hover {
+    color: #553d7b;
+    background: white;
+    border: 2px solid #7a57b3;
+  }
+}
+
+.red-button {
+  background-color: #e63662; //TO_DO: should be derived from colo palatte
+  border: 2px solid #e90a28;
+  &:hover {
+    color: #e63662;
+    background: white;
+    border: 2px solid #e90a28;
+  }
+}

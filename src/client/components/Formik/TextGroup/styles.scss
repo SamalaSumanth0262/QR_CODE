@@ -1,0 +1,16 @@
+.esop-text-group{
+  display: flex;
+  flex-direction: row;
+
+  input{
+    width: 100px;
+    height: 38px;
+    border-radius: 4px;
+    border: solid 1px #cccccc;
+    background-color: #ffffff;
+    padding: 10px;
+  }
+  .esop-drop-view{
+    width: 200px;
+  }
+}
