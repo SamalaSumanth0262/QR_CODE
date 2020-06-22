@@ -93,7 +93,7 @@ app.use(function(req, res, next) {
 app.use(express.static(__dirname + '/public/uploads'));
 // app.use(express.static('public'));
 app.use(bodyParser.json({type: 'application/vnd.api+json'})); // parse application/vnd.api+json as json
-app.use('/ftp', express.static('public'), serveIndex('public', {icons: true}));
+app.use('/public', express.static('public'), serveIndex('public', {icons: true}));
 app.use((err, req, res, next) => {
   let statusCode = err.statusCode ? err.statusCode : 500; // If err has no specified error code, set error code to 'Internal Server Error (500)'
   let errors = err.errors ? err.errors : [];
