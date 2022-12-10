@@ -109,7 +109,7 @@
     "cross-env": "5.2.0",
     "csurf": "^1.10.0",
     "docker": "^1.0.0",
-    "express": "4.16.4",
+    "express": "4.17.3",
     "express-formidable": "^1.2.0",
     "express-status-monitor": "^1.2.7",
     "express-validation": "^1.0.3",
